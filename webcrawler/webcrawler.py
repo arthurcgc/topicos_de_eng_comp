@@ -3,7 +3,7 @@ import bs4 as bs
 import re
 
 """ main function,  creates the txt files and populates them"""
-def crawler(url, file_location):
+def getwebdoc(url, file_location):
     rawtxt_name = input("Type File Name\n")
     file_path = file_location + '/' + rawtxt_name + '.txt'
     rawtxt_file = open(file_path, 'w')
@@ -58,4 +58,4 @@ def ishtmltag(file_path):
 if __name__ == "__main__":
     og_url = input("Type the target url\n")
     location = input("Type the location of the txt files\n")
-    crawler(og_url, location)
+    getwebdoc(og_url, location)
