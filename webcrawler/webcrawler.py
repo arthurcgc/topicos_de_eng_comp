@@ -7,24 +7,23 @@ def write_urldoc(url_list, url_path):
     try:
         urltxt_file = open(url_path, 'r')
         old_links = urltxt_file.readlines() # saves each line in a list of lines
-        print(old_links)
-        print("-----------------------------------------------------------------------------------------------------------------------")
-        print("new links:")
-        print(url_list)
+        new_links = set(old_links) - set(url_list)
         urltxt_file.close()
         
-        for link in url_list:
-            if link in old_links or link is False:
-                continue
-            else:
-                urltxt_file = open(url_path, 'a')
-                urltxt_file.writelines(str(link)+"\n")
+        for link in new_links:
+            urltxt_file = open(url_path, 'a')
+            urltxt_file.writelines(str(link))
+            urltxt_file.writelines("\n")
+                
+
 
     except FileNotFoundError:
         for link in url_list:
             if link is not False:
                 urltxt_file = open(url_path, 'a+')
-                urltxt_file.writelines(str(link)+"\n")
+                urltxt_file.writelines(str(link))
+                urltxt_file.writelines("\n")
+
     urltxt_file.close()
     
     return url_path
