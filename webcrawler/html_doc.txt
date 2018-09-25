@@ -1,0 +1,622 @@
+   python - python3-pip installed but pip3 command not found? - Super User
+   <meta content="I am testing a Python3 program in several computers. To do that, I need to install a library of Python with pip3.
+
+    StackExchange.ready(function () {
+                
+                StackExchange.using("postValidation", function () {
+                    StackExchange.postValidation.initOnBlurAndSubmit($('#post-form'), 2, 'answer');
+                });
+
+                
+                StackExchange.question.init({showAnswerHelp:true,totalCommentCount:1,shownCommentCount:1,highlightColor:'#BEB013',backgroundColor:'#FFF',questionId:769920});
+
+                styleCode();
+
+                    StackExchange.realtime.subscribeToQuestion('3', '769920');
+                                                    StackExchange.using("gps", function () { StackExchange.gps.trackOutboundClicks('#content', '.post-text'); });
+
+            });
+    StackExchange.ready(function () {
+            StackExchange.realtime.init('wss://qa.sockets.stackexchange.com');
+            StackExchange.realtime.subscribeToReputationNotifications('3');
+                StackExchange.realtime.subscribeToTopBarNotifications('3');
+        });
+    StackExchange.init({"locale":"en","serverTime":1537880695,"routeName":"Questions/Show","stackAuthUrl":"https://stackauth.com","networkMetaHostname":"meta.stackexchange.com","site":{"name":"Super User","description":"Q&A for computer enthusiasts and power users","isNoticesTabEnabled":true,"enableNewTagCreationWarning":true,"insertSpaceAfterNameTabCompletion":false,"id":3,"childUrl":"https://meta.superuser.com","enableSocialMediaInSharePopup":true,"protocol":"https"},"user":{"fkey":"3bdea90efd084aa10cacc903c837f59bbaf6b5bec1af9fd77ab5e0f2c098731b","tid":"c9402744-9f19-ed78-d0bd-055160fb5174","rep":0,"isAnonymous":true,"isAnonymousNetworkWide":true},"realtime":{"newest":true,"active":true,"tagged":true,"staleDisconnectIntervalInHours":0,"workerIframeDomain":"https://cdn.sstatic.net"},"events":{"postType":{"question":1},"postEditionSection":{"title":1,"body":2,"tags":3}},"story":{"minCompleteBodyLength":75,"likedTagsMaxLength":300,"dislikedTagsMaxLength":300},"jobPreferences":{"maxNumDeveloperRoles":2,"maxNumIndustries":4},"svgIconPath":"https://cdn.sstatic.net/Img/svg-icons","svgIconHash":"0f0fc5e90a6d"}, {"site":{"allowImageUploads":true,"enableUserHovercards":true,"styleCode":true,"enableImgurHttps":true,"forceHttpsImages":true,"stacksValidation":true},"userMessaging":{},"comments":{},"userProfile":{},"tags":{},"accounts":{"currentPasswordRequiredForChangingStackIdPassword":true},"flags":{"allowRetractingFlags":true},"snippets":{"renderDomain":"stacksnippets.net"},"paths":{},"markdown":{"asteriskIntraWordEmphasis":true},"monitoring":{"clientTimingsAbsoluteTimeout":30000,"clientTimingsDebounceTimeout":1000},"mentions":{"maxNumUsersInDropdown":50},"slack":{"sidebarAdDismissCookie":"slack-sidebar-ad"}});
+        StackExchange.using.setCacheBreakers({"js/prettify-full.en.js":"3f3e459d6053","js/moderator.en.js":"f145126b2080","js/full-anon.en.js":"50cbdf4adb0e","js/full.en.js":"c2537900abd1","js/wmd.en.js":"24c01c7598fd","js/mobile.en.js":"13ddd7009887","js/help.en.js":"118cb359bcc6","js/tageditor.en.js":"d274bf901f66","js/tageditornew.en.js":"1815b849fb40","js/inline-tag-editing.en.js":"97b4a0d9f86f","js/revisions.en.js":"db5a160e1690","js/review.en.js":"b663d2916a87","js/tagsuggestions.en.js":"78eee7c19ab2","js/post-validation.en.js":"0f749bdecbc9","js/explore-qlist.en.js":"da7883fd255c","js/events.en.js":"1d0a2bb6da12","js/keyboard-shortcuts.en.js":"5640e4149e19","js/external-editor.en.js":"7d20a0b245c2","js/adops.en.js":"22a9bd59b1e9"});
+        StackExchange.using("gps", function() {
+             StackExchange.gps.init(true);
+        });
+     body,.top-bar{margin-top:1.9em}
+        Stack Exchange Network
+        Stack Exchange network consists of 174 Q&amp;A communities including
+         Stack Overflow
+        , the largest, most trusted online community for developers to learn, share their knowledge, and build their careers.
+        Visit Stack Exchange
+       Log In
+       Sign Up
+          current community
+             Super User
+            help
+            chat
+            Meta Super User
+         your communities
+          Sign up
+         or
+          log in
+         to customize your list.
+          more stack exchange communities
+         company blog
+           Tour
+            Start here for a quick overview of the site
+           Help Center
+            Detailed answers to any questions you might have
+           Meta
+            Discuss the workings and policies of this site
+           About Us
+            Learn more about Stack Overflow the company
+           Business
+            Learn more about hiring developers or posting ads with us
+      By using our site, you acknowledge that you have read and understand our
+       Cookie Policy
+      ,
+       Privacy Policy
+      , and our
+       Terms of Service
+      .
+   StackExchange.ready(function () { StackExchange.topbar.init({ observeSize: true }); });
+        StackExchange.scrollPadding.setPaddingTop(50, 10);
+      Super User is a question and answer site for computer enthusiasts and power users. Join them; it only takes a minute:
+      Sign up
+      Here's how it works:
+        Anybody can ask a question
+        Anybody can answer
+        The best answers are voted up and rise to the top
+   StackExchange.ready(function () {
+        StackExchange.Hero.init("nso", "a");
+
+        var location = 0;
+        if ($("body").hasClass("questions-page")) {
+            location = 1;
+        } else if ($("body").hasClass("question-page")) {
+            location = 1;
+        } else if ($("body").hasClass("faq-page")) {
+            location = 5;
+        } else if ($("body").hasClass("home-page")) {
+            location = 3;
+        }
+
+        $('.js-cta-button').click(function () {
+            StackExchange.using("gps", function () {
+                StackExchange.gps.track("hero.action", { hero_action_type: 'cta', location: location }, true);
+            });
+        });
+
+        // TODO: we should review the class names and whatnot in use here. Older heroes use id selectors, the newer
+        // sticky question hero on SO has a .js-dismiss class instead, but it's apparently not used anywhere... 
+        // It's not great. Ideally we'd have a set of classes in the partials above that would correspond to 
+        // the behaviours we want here in a more clear way. 
+
+        // sticky question-page hero at the bottom of the page on SO
+        $('.js-dismiss').on('click', function () {
+            StackExchange.using("gps", function () {
+                StackExchange.gps.track("hero.action", { hero_action_type: "close", location: location }, true);
+            });
+            StackExchange.Hero.dismiss();
+            $(".js-dismissable-hero").fadeOut("fast");
+        });
+    });
+          Home
+           Questions
+           Tags
+           Users
+           Unanswered
+       .everyoneloves__top-leaderboard:empty,.everyoneloves__mid-leaderboard:empty{                height:90px;width:728px;box-sizing:border-box;
+}
+         python3-pip installed but pip3 command not found?
+         Ask Question
+            up vote
+            40
+            down vote
+            favorite
+             7
+            I am testing a Python3 program in several computers. To do that, I need to install a library of Python with
+             pip3
+            .
+            So first, I was installing
+             python3-pip
+            in each computer (everyone is running Kubuntu OS). Everything was OK, and then I installed the package I needed with
+             pip3
+            , and I managed to do that except for one computer.
+            In that computer,
+             python3-pip
+            was apparently installed succesfully, but when I look for the package, I get this error (the translation is homemade):
+ The command «pip» from the package «python-pip» (universe)
+pip3: command not found
+             EDIT
+            Results of
+             dpkg -L python3-pip
+            :
+/usr
+/usr/share
+/usr/share/man
+/usr/share/man/man1
+/usr/share/man/man1/pip-3.2.1.gz
+/usr/share/doc
+/usr/share/doc/python3-pip
+/usr/share/doc/python3-pip/changelog.Debian.gz
+/usr/share/doc/python3-pip/copyright
+/usr/bin
+/usr/bin/pip-3.2
+/usr/lib
+/usr/lib/python3
+/usr/lib/python3/dist-packages
+/usr/lib/python3/dist-packages/pip
+/usr/lib/python3/dist-packages/pip/log.py
+/usr/lib/python3/dist-packages/pip/commands
+/usr/lib/python3/dist-packages/pip/commands/unzip.py
+/usr/lib/python3/dist-packages/pip/commands/zip.py
+/usr/lib/python3/dist-packages/pip/commands/install.py
+/usr/lib/python3/dist-packages/pip/commands/completion.py
+/usr/lib/python3/dist-packages/pip/commands/uninstall.py
+/usr/lib/python3/dist-packages/pip/commands/search.py
+/usr/lib/python3/dist-packages/pip/commands/freeze.py
+/usr/lib/python3/dist-packages/pip/commands/__init__.py
+/usr/lib/python3/dist-packages/pip/commands/help.py
+/usr/lib/python3/dist-packages/pip/commands/bundle.py
+/usr/lib/python3/dist-packages/pip/_pkgutil.py
+/usr/lib/python3/dist-packages/pip/util.py
+/usr/lib/python3/dist-packages/pip/status_codes.py
+/usr/lib/python3/dist-packages/pip/vcs
+/usr/lib/python3/dist-packages/pip/vcs/__init__.py
+/usr/lib/python3/dist-packages/pip/vcs/mercurial.py
+/usr/lib/python3/dist-packages/pip/vcs/git.py
+/usr/lib/python3/dist-packages/pip/vcs/bazaar.py
+/usr/lib/python3/dist-packages/pip/vcs/subversion.py
+/usr/lib/python3/dist-packages/pip/baseparser.py
+/usr/lib/python3/dist-packages/pip/exceptions.py
+/usr/lib/python3/dist-packages/pip/index.py
+/usr/lib/python3/dist-packages/pip/basecommand.py
+/usr/lib/python3/dist-packages/pip/req.py
+/usr/lib/python3/dist-packages/pip/locations.py
+/usr/lib/python3/dist-packages/pip/__init__.py
+/usr/lib/python3/dist-packages/pip/runner.py
+/usr/lib/python3/dist-packages/pip/backwardcompat.py
+/usr/lib/python3/dist-packages/pip/download.py
+/usr/lib/python3/dist-packages/pip-1.1.egg-info
+/usr/lib/python3/dist-packages/pip-1.1.egg-info/SOURCES.txt
+/usr/lib/python3/dist-packages/pip-1.1.egg-info/not-zip-safe
+/usr/lib/python3/dist-packages/pip-1.1.egg-info/top_level.txt
+/usr/lib/python3/dist-packages/pip-1.1.egg-info/PKG-INFO
+/usr/lib/python3/dist-packages/pip-1.1.egg-info/entry_points.txt
+/usr/lib/python3/dist-packages/pip-1.1.egg-info/dependency_links.txt
+             python
+             kubuntu
+             pip
+               share
+               |
+               improve this question
+                edited
+                 Feb 3 at 7:08
+                galoget
+                 300
+                  10
+               asked
+                Jun 17 '14 at 13:56
+                forvas
+                 333
+                  1
+                  4
+                  12
+                Could you maybe accept the answer, if it was helpful? This marks the question as resolved and will help future users.
+               –
+                MERose
+                 Nov 8 '16 at 16:00
+            add a comment
+            |
+           3 Answers
+            3
+             active
+             oldest
+             votes
+             up vote
+             52
+             down vote
+             accepted
+             One of three things will likely fix it:
+               In case
+                python3-pip
+               did
+                not
+               install correctly, re-install it:
+               This is used for Debian-based distros like Ubuntu, Mint:
+               If using Fedora, CentOS, RHEL, please use:
+               Try using the command
+                python3-pip
+               instead (works on Fedora; I don't have a copy of Kubuntu to try it on).
+               Just a wild guess...check
+                pip --version
+               . There is a slight possibility that after installing
+                python3-pip
+               the new
+                pip
+               would
+                replace
+               the old
+                pip
+               (perhaps via
+                alternatives
+               ?)
+              EDIT
+             Now that the output of
+              dpkg -L python3-pip
+             has been added to the question, I can provide the answer.
+              The correct command name to use is:
+               pip-3.2
+              .
+               share
+               |
+               improve this answer
+                edited
+                 Feb 3 at 8:16
+                galoget
+                 300
+                  10
+               answered
+                Jun 17 '14 at 17:52
+                BenjiWiebe
+                 6,428
+                  9
+                  34
+                  57
+                 1
+                 It's not possible to reinstall python-pip3 (in Fedora at least), since dnf depends on it. In my case, I have python-pip3 installed, it should have installed /usr/bin/pip3, but didn't.
+                  rpm -ql python3-pip|grep bin/pip3
+                 shows
+                  /usr/bin/pip3 /usr/bin/pip3.5
+                 , but
+                  ls /usr/bin|grep pip3
+                 doesn't find them.
+                –
+                 dfarrell07
+                  Jan 3 '17 at 17:54
+                 2
+                 @dfarrell07 Wrong. You are not allowed to
+                  dnf remove
+                 it, since
+                  dnf
+                 depends on it. However, you are allowed to
+                  dnf reinstall
+                 it, which is what is needed anyways.
+                  dnf
+                 (and
+                  yum
+                 before it) is smart enough to know that reinstalling a needed package is OK even if removing it isn't.
+                –
+                 BenjiWiebe
+                  Jan 31 '17 at 5:38
+                 That wasn't in your answer, but I updated it to make it clear.
+                –
+                 dfarrell07
+                  Feb 1 '17 at 15:08
+             add a comment
+             |
+             up vote
+             5
+             down vote
+             I ran into this problem and found the solution. The
+              python3-pip
+             package installed a
+              pip-3.2
+             binary.
+             Executing
+              pip-3.2 --version
+             shows:
+             Whereas
+              python3-pip
+             gives the
+              command not found
+             message.
+             I tested it on a "clean" download from here:
+              https://sourceforge.net/projects/rpiqemuwindows/
+             I checked for
+              pip-3.2
+             before installing
+              python3-pip
+             and then after.
+               share
+               |
+               improve this answer
+                edited
+                 Feb 3 at 7:11
+                galoget
+                 300
+                  10
+               answered
+                Sep 21 '17 at 19:29
+                Joseph Alway
+                 51
+                  1
+                  1
+                 pip-3.6 now, in my case - this worked. Thanks and +1
+                –
+                 gibberish
+                  Apr 4 at 2:39
+             add a comment
+             |
+             up vote
+             -3
+             down vote
+             You can use use easy_install:
+easy_install3 pip
+               share
+               |
+               improve this answer
+                edited
+                 Mar 31 '17 at 4:24
+                Stephen Rauch
+                 2,215
+                  8
+                  15
+                  24
+               answered
+                Mar 31 '17 at 0:54
+                fabiofc1
+                 1
+                 1
+                 Can you clarify what this does and why it works?
+                –
+                 fixer1234
+                  Mar 31 '17 at 1:48
+                 This might be solution, but the question is oriented more to finding out what cause the error rather than finding the solution.
+                –
+                 Trouble Zero
+                  Jul 21 '17 at 20:08
+             add a comment
+             |
+           protected
+          by
+           Community
+           ♦
+            Feb 3 at 7:03
+          Thank you for your interest in this question. 
+Because it has attracted low-quality or spam answers that had to be removed, posting an answer now requires 10
+           reputation
+          on this site (the
+           association bonus does not count
+          ).
+           Would you like to answer one of these
+            unanswered questions
+           instead?
+         Not the answer you're looking for?                            Browse other questions tagged
+          python
+          kubuntu
+          pip
+         or
+          ask your own question
+         .
+            asked
+             4 years, 3 months ago
+            viewed
+             119,671 times
+            active
+              7 months ago
+        var clc = clc || {};
+                clc.collapse = { sb: !0,'tag-sponsorship':!0,lb:!1,mlb:!1,'mobile-below-question':!0};
+                                clc.dfp = clc.dfp || {};
+                clc.dfp.targeting = {Registered:['false'],'ron-tag':['python','kubuntu','pip']};
+                
+                var googletag = googletag || {};
+                googletag.cmd = googletag.cmd || [];
+                googletag.cmd.push(function () { clc.dfp.load(); });
+         Linked
+            -1
+           Map pip3 command to run pip-3.2 on debian wheezy
+         Related
+            1
+           Any way to (easily) upgrade Python in Ubuntu?
+            1
+           Error while trying to install Python module on local machine
+            5
+           The suggested way to handle pip(easy_install) with homebrew?
+            1
+           Python error In linux
+            0
+           install python2.7.3 + numpy + scipy + matplotlib + scikits.statsmodels + pandas0.7.3 correctly
+            0
+           Confused about libraries libtorrent and Deluge
+            1
+           Appropriate place to store custom Python modules on Linux
+            1
+           Pip install keeps throwing odd “ImportError”
+            0
+           Why won't Seaborn install on PyCharm or in the command line?
+            0
+           Unable to set up virtualenv on CentOS for python3
+          Hot Network Questions
+           Police forcing me to install Jingwang spyware app, how to minimize impact?
+           Teapot Riddle no.29
+           Why isn't an infinite, flat, nonexpanding universe filled with a uniform matter distribution a solution to Einstein's equation?
+           Has there ever been a peaceful overthrow of a monarch?
+           Why auto-renew instead of canceling the subscription after free-trial?
+           What stopwords list is Wolfram language using?
+           What is the difference between a well constructed and a poorly constructed font?
+           Coming clean to my girlfriend
+           Does ガス also mean gasoline in Japanese?
+           Ways to desalinate water when "lost at sea"?
+           Can the dome gunner on a B-17 Flying Fortress shoot the plane's tail off?
+           UK visit visa denied because of lack of financial proof. I plan on reapplying - is this the right strategy?
+           Given immortality can animals become intelligent?
+           Should I tell my manager about applying to a different (internal) job?
+           Usage of Apollo Lunar Surface Hasselblad Camera with 500 mm lens?
+           Do I have the copyrights to post a picture I took of someone on instagram?
+           How to make a bracketed environment like this?
+           How do I make Windows run Linux executables?
+           In C++, am I paying for what I am not eating?
+           Accessing not public variables
+           TracePrint does not work as in my book
+           Do immigrants use up more welfare?
+           Higher dimensional spheres cause contradictions?
+           Which mathematical definitions should be formalised in Lean?
+         more hot questions
+         question feed
+      StackExchange.ready(function(){$.get('/posts/769920/ivc/0a20');});
+        Super User
+         Tour
+         Help
+         Chat
+         Contact
+         Feedback
+         Mobile
+        Company
+         Stack Overflow
+         Stack Overflow Business
+         Developer Jobs
+         About
+         Press
+         Legal
+         Privacy Policy
+         Stack Exchange
+         Network
+          Technology
+          Life / Arts
+          Culture / Recreation
+          Science
+          Other
+          Stack Overflow
+          Server Fault
+          Super User
+          Web Applications
+          Ask Ubuntu
+          Webmasters
+          Game Development
+          TeX - LaTeX
+          Software Engineering
+          Unix &amp; Linux
+          Ask Different (Apple)
+          WordPress Development
+          Geographic Information Systems
+          Electrical Engineering
+          Android Enthusiasts
+          Information Security
+          Database Administrators
+          Drupal Answers
+          SharePoint
+          User Experience
+          Mathematica
+          Salesforce
+          ExpressionEngine® Answers
+          Stack Overflow em Português
+          Blender
+          Network Engineering
+          Cryptography
+          Code Review
+          Magento
+          Software Recommendations
+          Signal Processing
+          Emacs
+          Raspberry Pi
+          Stack Overflow на русском
+          Programming Puzzles &amp; Code Golf
+          Stack Overflow en español
+          Ethereum
+          Data Science
+          Arduino
+          Bitcoin
+           more (30)
+          Photography
+          Science Fiction &amp; Fantasy
+          Graphic Design
+          Movies &amp; TV
+          Music: Practice &amp; Theory
+          Worldbuilding
+          Seasoned Advice (cooking)
+          Home Improvement
+          Personal Finance &amp; Money
+          Academia
+          Law
+           more (15)
+          English Language &amp; Usage
+          Skeptics
+          Mi Yodeya (Judaism)
+          Travel
+          Christianity
+          English Language Learners
+          Japanese Language
+          Arqade (gaming)
+          Bicycles
+          Role-playing Games
+          Anime &amp; Manga
+          Puzzling
+          Motor Vehicle Maintenance &amp; Repair
+           more (33)
+          MathOverflow
+          Mathematics
+          Cross Validated (stats)
+          Theoretical Computer Science
+          Physics
+          Chemistry
+          Biology
+          Computer Science
+          Philosophy
+           more (10)
+          Meta Stack Exchange
+          Stack Apps
+          API
+          Data
+          Area 51
+        Blog
+        Facebook
+        Twitter
+        LinkedIn
+      site design / logo © 2018 Stack Exchange Inc; user contributions licensed under
+       cc by-sa 3.0
+      with
+       attribution required
+      .
+       rev 2018.9.24.31671
+   StackExchange.ready(function () { StackExchange.responsiveness.addSwitcher(); })
+    Super User works best with JavaScript enabled
+   (function(i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function() { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m);
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+            StackExchange.ready(function () {
+
+                StackExchange.ga.init({
+                    sendTitles: true,
+                    tracker: window.ga,
+                    trackingCodes: [
+                        'UA-108242619-5'
+                    ]
+                });
+
+
+
+                    StackExchange.ga.setDimension('dimension2', '|python|kubuntu|pip|');
+
+                    StackExchange.ga.setDimension('dimension3', 'Questions/Show');
+
+
+                StackExchange.ga.trackPageView();
+            });
+            
+/**/
+            
+            var _qevents = _qevents || [],
+            _comscore = _comscore || [];
+            (function() {
+                var ssl = 'https:' == document.location.protocol,
+                    s = document.getElementsByTagName('script')[0],
+                    qc = document.createElement('script');
+                 qc.async = true;
+                    qc.src = (ssl ? 'https://secure' : 'http://edge') + '.quantserve.com/quant.js';
+                    s.parentNode.insertBefore(qc, s);
+                    _qevents.push({ qacct: "p-c1rF4kxgLUzNc" });
+/**/
+                 var sc = document.createElement('script');
+                    sc.async = true;
+                    sc.src = (ssl ? 'https://sb' : 'http://b') + '.scorecardresearch.com/beacon.js';
+                    s.parentNode.insertBefore(sc, s);
+                    _comscore.push({ c1: "2", c2: "17440561" });
+            })();
