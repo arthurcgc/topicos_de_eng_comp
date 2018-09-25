@@ -1,7 +1,8 @@
+#!/usr/bin/python3
 import feedparser as fp
 import re
 
-
+""" Asks for the user input of the urls he wishes to parse """
 def ask_urls():
     urls =[]
     while True:
@@ -14,26 +15,21 @@ def ask_urls():
             print("You've already typed this url\n")
     return urls
 
-
-def remove_url(url,urls):
-    return urls.remove(url)
-
+""" Receives a list of urls and returns a list of feedparser objects """
 def feeder(urls):
     feeds = []
     for i in range(len(urls)):
         feeds[i] = fp.parse(urls[i])
     return feeds
-    
+
+
+""" Stores urls in a text file, it receives a list of strings and a file path to save the file """
 def store_RSS_urls(urls,file_path):
     rss_urls = open(file_path, 'w+')
     for url in urls:
         rss_urls.writelines(url)
 
-""" def select_url(url,urls):
-    if url in urls:
-        feed = fp.parse(url)
-    return feed """
-
+""" Receives a list containng feedparser objects and displays every article in it """
 def display_articles(feed):
     print(len(feed.entries))
     for i in range(len(feed.entries)):
@@ -59,6 +55,8 @@ def display_articles(feed):
             date = "Unknown"
         print("Title: {}\nAuthor: {}\nCategory: {}\nDate Published: {}\n".format(title, author, category, date))
 
+
+""" Receives a feedparser.entries object and displays it's description and full summary if the user wishes to do so """
 def display_description(feed_entry):
     summary = feed_entry.summary
     remove_tag = re.compile(r"(<.*>)([^.]*)")
@@ -73,30 +71,38 @@ def display_description(feed_entry):
     if ask_summary == "Y":
         print(summary)
 
-
+""" Main Functions, calls all the other functions and gets the input from the user """
 if __name__=="__main__":
     urls = ask_urls()
-    print(urls)
-    delete_url = input("Do you want to exclude any previously typed url? If so type 1:\n")
-    if delete_url == 1:
-        remove = input("type the url you wish to remove:\n")
-        remove_url(remove,urls)
-    print(urls)
-    file_path = input("Type the file path you wish to save your RSS urls:\n")
+    delete_url = input("Do you want to exclude any previously typed url? [Y/N]:\n")
+    while True:
+        if delete_url == "Y":
+            remove = input("type the url you wish to remove:\n")
+            urls.remove(remove)
+        elif delete_url == "N":
+            break
+            
+    print("current rss feeds:")
+
+    for item in urls:
+        print(item)
+
+    file_path = input("\nType the file path you wish to save your RSS urls:\n")
     store_RSS_urls(urls, file_path)
+
     for i in range(len(urls)):
         print("\n{}st url:\t{}\n".format(i+1, urls[i]))
-    index = int(input("From the list above, type the number that corresponds to the url you wish to see the articles from\n"))
+
+
+    index = int(input("From the list above, type the number that corresponds to the url you wish to see the articles of\n"))
     feed = fp.parse(urls[index-1])
     display_articles(feed)
     while True:
-        q_read_article = input("Do you wish to see a description from an article from the list above? Y/N\n")
+        q_read_article = input("Do you wish to see a description from an article from the list above? [Y/N]\n")
         if q_read_article == "Y":
             art_index = int(input("Type the article number you wish to see:\n")) - 1
             display_description(feed.entries[art_index])
         elif q_read_article == "N":
             break
-        else:
-            pass
 
 

@@ -1,0 +1,1 @@
+http://g1.globo.com/dynamo/brasil/rss2.xmlhttp://g1.globo.com/dynamo/carros/rss2.xmlhttp://g1.globo.com/dynamo/ciencia-e-saude/rss2.xml

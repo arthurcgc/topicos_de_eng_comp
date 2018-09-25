@@ -2,7 +2,7 @@ import requests
 import bs4 as bs
 import re
 
-
+""" Writes the text file containing all the urls that can be potentially visited """
 def write_urldoc(url_list, url_path):
     try:
         urltxt_file = open(url_path, 'r')
