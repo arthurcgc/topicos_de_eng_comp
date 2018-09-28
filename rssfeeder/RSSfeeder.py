@@ -6,13 +6,13 @@ import re
 def ask_urls():
     urls =[]
     while True:
-        url = input("Type the url of an RSS feed or type \"quit\" if you're done\n")
-        if url != "quit" and url not in urls:
+        url = input("\nType the url of an RSS feed or type \"done\" if you're done\n")
+        if url != "done" and url not in urls:
             urls.append(url)
-        elif url == "quit":
+        elif url == "done":
             break
         else:
-            print("You've already typed this url\n")
+            print("\nYou've already typed this url\n")
     return urls
 
 """ Receives a list of urls and returns a list of feedparser objects """
@@ -74,31 +74,32 @@ def display_description(feed_entry):
 """ Main Functions, calls all the other functions and gets the input from the user """
 if __name__=="__main__":
     urls = ask_urls()
-    delete_url = input("Do you want to exclude any previously typed url? [Y/N]:\n")
     while True:
+        delete_url = input("Do you want to exclude any previously typed url? [Y/N]:\n")
         if delete_url == "Y":
-            remove = input("type the url you wish to remove:\n")
+            remove = input("\ntype the url you wish to remove:\n")
             urls.remove(remove)
+            print("\nurl: {} removed!\n".format(remove))
         elif delete_url == "N":
             break
             
-    print("current rss feeds:")
+    print("\ncurrent rss feeds:")
 
     for item in urls:
         print(item)
 
-    file_path = input("\nType the file path you wish to save your RSS urls:\n")
+    file_path = input("\nType the file path you wish to save your RSS urls: (i.e d:/tmp/rss.txt)\n")
     store_RSS_urls(urls, file_path)
 
     for i in range(len(urls)):
-        print("\n{}st url:\t{}\n".format(i+1, urls[i]))
+        print("\n{}- url:\t{}\n".format(i+1, urls[i]))
 
 
     index = int(input("From the list above, type the number that corresponds to the url you wish to see the articles of\n"))
     feed = fp.parse(urls[index-1])
     display_articles(feed)
     while True:
-        q_read_article = input("Do you wish to see a description from an article from the list above? [Y/N]\n")
+        q_read_article = input("Do you wish to see a description from an article from the list above? [Y/N] (If you choose N the program will close)\n")
         if q_read_article == "Y":
             art_index = int(input("Type the article number you wish to see:\n")) - 1
             display_description(feed.entries[art_index])
