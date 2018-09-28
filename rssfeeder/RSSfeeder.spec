@@ -19,18 +19,14 @@ pyz = PYZ(a.pure, a.zipped_data,
              cipher=block_cipher)
 exe = EXE(pyz,
           a.scripts,
+          a.binaries,
+          a.zipfiles,
+          a.datas,
           [],
-          exclude_binaries=True,
           name='RSSfeeder',
           debug=False,
           bootloader_ignore_signals=False,
           strip=False,
           upx=True,
-          console=True , icon='mr-robot-t-shirt-evil-corp-logo.ico')
-coll = COLLECT(exe,
-               a.binaries,
-               a.zipfiles,
-               a.datas,
-               strip=False,
-               upx=True,
-               name='RSSfeeder')
+          runtime_tmpdir=None,
+          console=True , icon='icons8_rss_filled_50_jcQ_icon.ico')
