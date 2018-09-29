@@ -38,7 +38,7 @@ def save_links(links,links_path):
     links_txt.close()
 
 def write_html_txt(html_path,text):
-    html_raw_txt = open(html_path,"w",encoding='utf-8')
+    html_raw_txt = open(html_path,"w", encoding='utf-8')
     html_raw_txt.writelines(text)
     html_raw_txt.close()
 
@@ -72,7 +72,7 @@ def iterate(og_links,html_path,max_iter,links_path):
         except:
             print("Failed ;(\n")
             failed += 1
-        html_doc = open(html_path,'a',encoding='utf-8' )
+        html_doc = open(html_path,'a', encoding='utf-8')
         html_doc.write("\n\n___________________________________________________________________________________________________________________\n\n")
         html_doc.write("\n\n___________________________________________________________________________________________________________________\n\n")
         html_doc.write("\n\n___________________________________________________________________________________________________________________\n\n")
