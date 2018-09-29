@@ -25,7 +25,7 @@ def get_raw_txt(url):
 def get_links(url):
     resp = requests.get(url) # Obtaining first url to scrape
     soup = bs.BeautifulSoup(resp.content,"html.parser")
-    links = [] 
+    links = []
     for link in soup.findAll('a'):
         if link.get('href') not in links:
             links.append(link.get('href'))
@@ -38,17 +38,17 @@ def save_links(links,links_path):
     links_txt.close()
 
 def write_html_txt(html_path,text):
-    html_raw_txt = open(html_path,"w")
+    html_raw_txt = open(html_path,"w",encoding='utf-8')
     html_raw_txt.writelines(text)
     html_raw_txt.close()
 
 def iterate(og_links,html_path,max_iter,links_path):
     for i in range(0,max_iter):
-        print("Visiting : {}".format(links[i]))
+        print("Visiting : {}".format(og_links[i]))
         new_links = get_links(og_links[i])
         for j in range(0,len(new_links)):
             # import pdb;pdb.set_trace()
-            if new_links[j] in links:
+            if new_links[j] in og_links:
                 not_appended = new_links[j]
                 print("link already in old links that won't be appended: {}".format(not_appended))
             else:
@@ -57,8 +57,8 @@ def iterate(og_links,html_path,max_iter,links_path):
                 appended_links.write(new_links[j]+"\n")
                 appended_links.close()
                 # now we iterate getting the raw text from the webdoc
-    
-    
+
+
     attempts = 0
     success = 0
     failed = 0
@@ -72,19 +72,19 @@ def iterate(og_links,html_path,max_iter,links_path):
         except:
             print("Failed ;(\n")
             failed += 1
-        html_doc = open(html_path,'a')
+        html_doc = open(html_path,'a',encoding='utf-8' )
         html_doc.write("\n\n___________________________________________________________________________________________________________________\n\n")
         html_doc.write("\n\n___________________________________________________________________________________________________________________\n\n")
         html_doc.write("\n\n___________________________________________________________________________________________________________________\n\n")
         html_doc.writelines(text)
         html_doc.close()
         attempts += 1
-    
+
     all_links.close()
     print("Total attempts = {}".format(attempts))
     print("Total successfull connections = {}".format(success))
     print("Total failures = {}".format(failed))
-    
+
 
 
 def unicorn():
@@ -111,6 +111,19 @@ def unicorn():
         """)
 
 
+def test1():
+    unicorn()
+    html_path = r"C:\Users\tubas\Desktop\topicos_de_eng_comp\webcrawler\html.txt"
+    url = r"https://hackernoon.com/the-secret-hacker-code-974bc55af261"
+    links_path = r"C:\Users\tubas\Desktop\topicos_de_eng_comp\webcrawler\links.txt"
+    text = get_raw_txt(url)
+    write_html_txt(html_path,text)
+    links = get_links(url)
+    save_links(links, links_path)
+    iterations = 1
+    iterate(links,html_path,iterations,links_path)
+
+
 
 if __name__ == "__main__":
     unicorn()
@@ -123,7 +136,7 @@ if __name__ == "__main__":
             break
         except:
             print("\nNot a valid path\n")
-    
+
     # url = "https://hackernoon.com/the-secret-hacker-code-974bc55af261"
     url = input("\nType the url you wish to scrape:(i.e https://hackernoon.com/the-secret-hacker-code-974bc55af261)\n")
 
@@ -136,7 +149,7 @@ if __name__ == "__main__":
             break
         except:
             print("\nNot a valid path\n")
-        
+
     text = get_raw_txt(url)
     write_html_txt(html_path,text)
     links = get_links(url)
