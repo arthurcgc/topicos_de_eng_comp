@@ -71,8 +71,30 @@ def display_description(feed_entry):
     if ask_summary == "Y":
         print(summary)
 
+
+def astronaut():
+    print("""        _..._
+      .'     '.      _
+     /    .-""-\   _/ \
+   .-|   /:.   |  |   |
+   |  \  |:.   /.-'-./
+   | .-'-;:__.'    =/
+   .'=  *=|NASA _.='
+  /   _.  |    ;
+ ;-.-'|    \   |
+/   | \    _\  _\
+\__/'._;.  ==' ==\
+         \    \   |
+         /    /   /
+         /-._/-._/
+  jgs    \   `\  \
+          `-._/._/
+          """)
+
+
 """ Main Functions, calls all the other functions and gets the input from the user """
 if __name__=="__main__":
+    astronaut()
     urls = ask_urls()
     while True:
         delete_url = input("Do you want to exclude any previously typed url? [Y/N]:\n")
@@ -82,7 +104,7 @@ if __name__=="__main__":
             print("\nurl: {} removed!\n".format(remove))
         elif delete_url == "N":
             break
-            
+
     print("\ncurrent rss feeds:")
 
     for item in urls:
@@ -105,5 +127,3 @@ if __name__=="__main__":
             display_description(feed.entries[art_index])
         elif q_read_article == "N":
             break
-
-
