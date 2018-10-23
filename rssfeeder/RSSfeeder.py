@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 import feedparser as fp
 import re
+import sqlite3
+import os
 
 """ Asks for the user input of the urls he wishes to parse """
 def ask_urls():
@@ -24,10 +26,26 @@ def feeder(urls):
 
 
 """ Stores urls in a text file, it receives a list of strings and a file path to save the file """
-def store_RSS_urls(urls,file_path):
-    rss_urls = open(file_path, 'w+')
-    for url in urls:
-        rss_urls.writelines(url)
+def store_RSS_urls(urls):
+    if os.path.exists("rss_urls.db"):
+        os.remove("rss_urls.db")
+
+    rss_urls = sqlite3.connect("rss_urls.db")
+    cursor = rss_urls.cursor()
+    cursor.execute(""" CREATE TABLE links 
+    (
+        url text,
+        ind integer primary key
+    ) 
+    """)
+    rss_urls.commit()
+
+    n = len(urls)
+    for i in range(n):
+        url = urls[i]
+        cursor.execute("INSERT INTO links VALUES (?, ?);",(url, i))
+        rss_urls.commit()
+    rss_urls.close()
 
 """ Receives a list containng feedparser objects and displays every article in it """
 def display_articles(feed):
@@ -63,17 +81,20 @@ def display_description(feed_entry):
     match = remove_tag.findall(summary)
     #print(match[0][1])
     #import pdb;pdb.set_trace()
-    if match[0][1] != None:
+    try:
         print(match[0][1] + "...")
-    else:
-        print(match[0][0] + "...")
+    except IndexError:
+        try:
+            print(match[0][0] + "...")
+        except IndexError:
+            print("This article has no description avaiable")
     ask_summary = input("Do you wish to display the whole text of the article? [Y/N]\n")
     if ask_summary == "Y":
         print(summary)
 
 
 def astronaut():
-    print("""        _..._
+    print(r"""        _..._
       .'     '.      _
      /    .-""-\   _/ \
    .-|   /:.   |  |   |
@@ -107,11 +128,11 @@ if __name__=="__main__":
 
     print("\ncurrent rss feeds:")
 
-    for item in urls:
-        print(item)
+    """     for item in urls:
+        print(item) """
 
-    file_path = input("\nType the file path you wish to save your RSS urls: (i.e d:/tmp/rss.txt)\n")
-    store_RSS_urls(urls, file_path)
+    #file_path = input("\nType the file path you wish to save your RSS urls: (i.e d:/tmp/rss.txt)\n")
+    store_RSS_urls(urls)
 
     for i in range(len(urls)):
         print("\n{}- url:\t{}\n".format(i+1, urls[i]))
