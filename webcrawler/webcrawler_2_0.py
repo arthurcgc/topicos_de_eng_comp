@@ -88,7 +88,7 @@ def iterate(og_links,html_path,max_iter,links_path):
 
 
 def unicorn():
-    print("""
+    print(r"""
                   ,,))))))));,
            __)))))))))))))),
 \|/       -\(((((''''((((((((.
